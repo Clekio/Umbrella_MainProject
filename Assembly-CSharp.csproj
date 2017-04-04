@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\Scr_TakeBox.cs" />
      <Compile Include="Assets\Scripts\Scr_UnloadScene.cs" />
      <Compile Include="Assets\Scripts\Scr_Wind.cs" />
+     <Compile Include="Assets\Scripts\Scr_Wind1.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Archivos de programa (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
