@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/scn_fer.unity
+- path: Assets/Scenes/WaterEffects.unity
   isLoaded: 1
   isActive: 1
