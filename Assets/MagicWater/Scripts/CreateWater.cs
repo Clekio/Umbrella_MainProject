@@ -14,16 +14,11 @@ public class CreateWater : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown ("Fire1")) {
-			Debug.Log ("ButtonDown");
 			Particler.SetActive (true);
 		}
 		if (Input.GetButtonUp ("Fire1")) {
-			Debug.Log ("ButtonUp");
 			Particler.SetActive (false);
 		}
-
-		Particler.transform.position = Input.mousePosition;
-			
 		
 	}
 }
