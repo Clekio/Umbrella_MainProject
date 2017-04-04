@@ -59,7 +59,11 @@
      <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADogResting.cs" />
      <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADogStatePattern.cs" />
      <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADogStates.cs" />
+     <Compile Include="Assets\Scripts\LineaFer\Gestures.cs" />
+     <Compile Include="Assets\Scripts\LineaFer\Line.cs" />
+     <Compile Include="Assets\Scripts\LineaFer\LineCreator.cs" />
      <Compile Include="Assets\Scripts\Magia_01.cs" />
+     <Compile Include="Assets\Scripts\MagicManager.cs" />
      <Compile Include="Assets\Scripts\PlayerVictor\Scr_Controller2DVictor.cs" />
      <Compile Include="Assets\Scripts\PlayerVictor\Scr_PlayerInputVictor.cs" />
      <Compile Include="Assets\Scripts\PlayerVictor\Scr_PlayerVictor.cs" />

@@ -18,8 +18,14 @@ public class ParticleGenerator : MonoBehaviour {
 	public Vector3 particleForce; //Is there a initial force particles should have?
 	public DynamicParticle.STATES particlesState=DynamicParticle.STATES.WATER; // The state of the particles spawned
 	public Transform particlesParent; // Where will the spawned particles will be parented (To avoid covering the whole inspector with them)
+	public string parentName;
 
-	void Start() { 	}
+	void Start() { 	
+	
+		if (!particlesParent) {
+			particlesParent = GameObject.Find (parentName).transform;
+		}
+	}
 
 	void Update() {	
 		if( lastSpawnTime+SPAWN_INTERVAL<Time.time ){ // Is it time already for spawning a new particle?
