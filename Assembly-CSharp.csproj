@@ -46,6 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MagicWater\LiquidPhysics\Scripts\DynamicParticle.cs" />
+     <Compile Include="Assets\MagicWater\LiquidPhysics\Scripts\ParticleGenerator.cs" />
+     <Compile Include="Assets\MagicWater\Scripts\CreateWater.cs" />
+     <Compile Include="Assets\MagicWater\Scripts\MouseFollow.cs" />
+     <Compile Include="Assets\MagicWater\Scripts\WaterEffects.cs" />
      <Compile Include="Assets\Scripts\Ayudantes\scr_CheckPoint.cs" />
      <Compile Include="Assets\Scripts\Ayudantes\scr_DeathZone.cs" />
      <Compile Include="Assets\Scripts\Destroys\DestroyWind.cs" />
@@ -72,6 +77,7 @@
      <Compile Include="Assets\Scripts\Scr_UnloadScene.cs" />
      <Compile Include="Assets\Scripts\Scr_Wind.cs" />
      <Compile Include="Assets\Scripts\Scr_Wind1.cs" />
+     <None Include="Assets\MagicWater\LiquidPhysics\Shaders\Metaballs_Multiple.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Archivos de programa (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
