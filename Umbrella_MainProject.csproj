@@ -75,6 +75,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MagicWater\LiquidPhysics\Scripts\DynamicParticle.cs" />
+    <Compile Include="Assets\MagicWater\LiquidPhysics\Scripts\ParticleGenerator.cs" />
+    <Compile Include="Assets\MagicWater\Scripts\CreateWater.cs" />
+    <Compile Include="Assets\MagicWater\Scripts\MouseFollow.cs" />
+    <Compile Include="Assets\MagicWater\Scripts\WaterEffects.cs" />
+    <Compile Include="Assets\Materials\Scr_CamHotspot.cs" />
     <Compile Include="Assets\Scripts\Ayudantes\scr_CheckPoint.cs" />
     <Compile Include="Assets\Scripts\Ayudantes\scr_DeathZone.cs" />
     <Compile Include="Assets\Scripts\Destroys\DestroyWind.cs" />
@@ -83,6 +89,9 @@
     <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADogResting.cs" />
     <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADogStatePattern.cs" />
     <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADogStates.cs" />
+    <Compile Include="Assets\Scripts\LineaFer\Gestures.cs" />
+    <Compile Include="Assets\Scripts\LineaFer\Line.cs" />
+    <Compile Include="Assets\Scripts\LineaFer\LineCreator.cs" />
     <Compile Include="Assets\Scripts\Magia_01.cs" />
     <Compile Include="Assets\Scripts\PlayerVictor\Scr_Controller2DVictor.cs" />
     <Compile Include="Assets\Scripts\PlayerVictor\Scr_PlayerInputVictor.cs" />
@@ -91,7 +100,6 @@
     <Compile Include="Assets\Scripts\Scene management\Scr_SceneManager.cs" />
     <Compile Include="Assets\Scripts\Scene management\scr_LoadScn.cs" />
     <Compile Include="Assets\Scripts\Scene management\scr_UnloadScn.cs" />
-    <Compile Include="Assets\Scripts\Scr_CamHotspot.cs" />
     <Compile Include="Assets\Scripts\Scr_CamMov.cs" />
     <Compile Include="Assets\Scripts\Scr_Controller2D.cs" />
     <Compile Include="Assets\Scripts\Scr_LoadScene.cs" />
@@ -101,6 +109,9 @@
     <Compile Include="Assets\Scripts\Scr_UnloadScene.cs" />
     <Compile Include="Assets\Scripts\Scr_Wind.cs" />
     <Compile Include="Assets\Scripts\Scr_Wind1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\MagicWater\LiquidPhysics\Shaders\Metaballs_Multiple.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
