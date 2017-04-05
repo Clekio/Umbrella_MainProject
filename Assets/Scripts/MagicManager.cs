@@ -32,7 +32,7 @@ public class MagicManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 p = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 15));
+		Vector3 p = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 21));
 		
 		if (waterfall) {
 			if (Input.GetButtonDown ("Fire1")) {
