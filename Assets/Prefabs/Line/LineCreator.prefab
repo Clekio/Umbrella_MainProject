@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4194894845357468}
   - component: {fileID: 114559915574968176}
+  - component: {fileID: 114574645235817038}
+  - component: {fileID: 114762747606634826}
   m_Layer: 0
   m_Name: LineCreator
   m_TagString: Untagged
@@ -51,4 +53,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492fd9e70724eb345bc468e9c4122722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linePrefab: {fileID: 1958155713448096, guid: 8a3039169715e15429ab6e0ec4332067, type: 2}
+  linePrefab: {fileID: 1958155713448096, guid: 7b0e36b5746805542a772401be5029a3, type: 2}
+--- !u!114 &114574645235817038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1384168997399898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b535328a9c41d4498a270ecce29c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceMargin: 0.05
+  mouseDeltaNeeded: 0.05
+  minimumAngle: 10
+--- !u!114 &114762747606634826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1384168997399898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685b5d0583466ff4a80e160efb435430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
