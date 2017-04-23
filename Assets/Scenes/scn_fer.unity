@@ -178,25 +178,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &885155045 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1384168997399898, guid: 3620e30c83734914c9f183c8c74ef779,
-    type: 2}
-  m_PrefabInternal: {fileID: 2070281978}
---- !u!114 &885155046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 885155045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01b535328a9c41d4498a270ecce29c75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceMargin: 0.05
-  mouseDeltaNeeded: 0.05
-  minimumAngle: 10
 --- !u!1001 &2070281978
 Prefab:
   m_ObjectHideFlags: 0
@@ -236,12 +217,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114559915574968176, guid: 3620e30c83734914c9f183c8c74ef779,
-        type: 2}
-      propertyPath: linePrefab
-      value: 
-      objectReference: {fileID: 1958155713448096, guid: 7b0e36b5746805542a772401be5029a3,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
   m_IsPrefabParent: 0

@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\LineaFer\Gestures.cs" />
     <Compile Include="Assets\Scripts\LineaFer\Line.cs" />
     <Compile Include="Assets\Scripts\LineaFer\LineCreator.cs" />
+    <Compile Include="Assets\Scripts\LineaFer\scr_gestosTemplate.cs" />
     <Compile Include="Assets\Scripts\Magia_01.cs" />
     <Compile Include="Assets\Scripts\PlayerVictor\Scr_Controller2DVictor.cs" />
     <Compile Include="Assets\Scripts\PlayerVictor\Scr_PlayerInputVictor.cs" />
