@@ -33,9 +33,10 @@ public class Gestures : MonoBehaviour {
 	}
 
 	List<Vector2> currentGesture;
+    List<Vector2> finalGesture;
 
     NormalizedGesture currentNormalized;
-
+    private string gestureName;
     void Update () {
 
         Vector2 thisDelta = ((Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition) - lastMousePos)/Time.deltaTime;
@@ -50,8 +51,9 @@ public class Gestures : MonoBehaviour {
         {
             currentGesture = OptimizeGesture(currentGesture);
 			currentNormalized = Normalize(currentGesture);
-
-		}
+            finalGesture = Simplification(currentNormalized.gesture);
+            gestureName = Recognition(finalGesture);
+        }
 		lastDelta = thisDelta;
         lastMousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
@@ -74,13 +76,23 @@ public class Gestures : MonoBehaviour {
                     Debug.DrawLine(vP, currentNormalized.gesture[i], Color.green);
                 vP = currentNormalized.gesture[i];
             }
+        }
 
+        if (finalGesture != null)
+        {
+            Vector2 vP = new Vector2(0, 0);
+            for (int i = 0; i < finalGesture.Count; i++)
+            {
+                if (vP != null)
+                    Debug.DrawLine(vP, finalGesture[i] + vP, Color.blue);
+
+                vP = vP + finalGesture[i];
+            }
         }
     }
 
     [SerializeField] float distanceMargin = 0.05f;
     [SerializeField] float mouseDeltaNeeded = 0.05f;
-
     void RecordPosition(Vector2 position, Vector2 thisframeMouseSpeed, Vector2 lastFrameMouseSpeed, List<Vector2> previouspoints) {
         if (previouspoints.Count > 0)
         {
@@ -95,24 +107,28 @@ public class Gestures : MonoBehaviour {
     }
 
     [SerializeField] float minimumAngle = 10;
-
     List<Vector2> OptimizeGesture(List<Vector2> points) {
         if (points.Count >= 3)
         {
             List<Vector2> optimized = new List<Vector2>();
             optimized.Add(points[0]);
-            optimized.Add(points[1]);
-            Vector2 vP = points[1] - points[0];
-            Vector2 cursor = points[1];
-            for (int i = 2; i < points.Count; i++)
+            //optimized.Add(points[1]);
+            //Vector2 vP = points[1] - points[0];
+            //Vector2 cursor = points[1];
+            for (int i = 1; i < points.Count-1; i++)
             {
-                if (Vector2.Angle(vP, points[i] - cursor) > minimumAngle || Vector2.Angle(vP, points[i] - cursor) < -minimumAngle)
+                float anguloAB = AngleBetweenVector2(points[i], optimized[optimized.Count - 1]);
+                float anguloAC = AngleBetweenVector2(points[i + 1], optimized[optimized.Count - 1]);
+                //Debug.Log(anguloAB - anguloAC);
+                if (Mathf.Abs(anguloAB - anguloAC) > minimumAngle)
                 {
-                    vP = points[i] - cursor;
-                    cursor = points[i];
+                    //vP = points[i] - cursor;
+                    //cursor = points[i];
                     optimized.Add(points[i]);
                 }
             }
+            optimized.Add(points[points.Count-1]);
+
             return optimized;
         } else {
             return points;
@@ -148,65 +164,84 @@ public class Gestures : MonoBehaviour {
         normalized.rotation = angle;
 
         //normalized inversion;
-        //if ((normalizedList[1] - normalizedList[0]).x < 0)
-        //{
-        //    for (int i = 0; i < normalizedList.Count; i++)
-        //    {
-        //        normalizedList[i] = new Vector2(-normalizedList[i].x, normalizedList[i].y);
-        //    }
-        //    normalized.inverted = true;
-        //}
-        //else
-        //{
-        //    normalized.inverted = false;
-        //}
-		
+        if ((normalizedList[2] - normalizedList[1]).x < 0)
+        {
+            for (int i = 0; i < normalizedList.Count; i++)
+            {
+                normalizedList[i] = new Vector2(-normalizedList[i].x, normalizedList[i].y);
+            }
+            normalized.inverted = true;
+        }
+        else
+        {
+            normalized.inverted = false;
+        }
+
         normalized.gesture = normalizedList;
         return normalized;
     }
 
-	void Recognition(List<Vector2> pointList)
+    private float esoYTal = 0.1f;
+    List<Vector2> Simplification(List<Vector2> pointList)
 	{
-		string signo = "";
+		//string signo = "";
 		List<Vector2> directionList = new List<Vector2>();
 		List<Vector2> endSigno = new List<Vector2>();
 		for (int i = 1; i < pointList.Count; i++)
 		{
 			Vector2 dir = pointList[i - 1] - pointList[i];
-			Vector2 dirBasica;
+            float angulo = Vector2.Angle(Vector2.left, dir);
+            Vector2 dirBasica = new Vector2 (0,0);
 			
-			//Horizontal
-			//Up
-			if (dir.y < -0.1)
-				dirBasica.y = -1;
-			else if (dir.y > 0.1)
-				dirBasica.y = 1;
-			else
-				dirBasica.y = 0;
+            if(angulo <= 22.5f)
+                dirBasica = new Vector2(1, 0);
+            else if(angulo > 22.5f && angulo <= 67.5f)
+                dirBasica = new Vector2(1, 1);
+            else if (angulo > 67.5f && angulo <= 112.5f)
+                dirBasica = new Vector2(0, 1);
+            else if (angulo > 112.5f && angulo <= 157.5f)
+                dirBasica = new Vector2(-1, 1);
+            else if (angulo > 157.5f)
+                dirBasica = new Vector2(-1, 0);
 
-			//Vertical
-			if (dir.x < -0.1)
-				dirBasica.x = -1;
-			else if (dir.x > 0.1)
-				dirBasica.x = 1;
-			else
-				dirBasica.x = 0;
+            if (pointList[i].y < pointList[i - 1].y)
+                dirBasica.y *= -1;
 
-			endSigno.Add(dirBasica);
-			Debug.Log(dirBasica);
+            endSigno.Add(dirBasica);
 		}
-
-        Reconocer(endSigno);
-        //return signo;
+        return endSigno;
     }
 	
-	private void Reconocer(List<Vector2> basicpointlist)
+	private string Recognition(List<Vector2> basicpointlist)
 	{
-		foreach (Gesto agesto in listaGestos)
-		{
-			Debug.Log(agesto.Name);
+        string gestureName = "Error";
+        for (int i = 0; i < scr_gestosTemplate.TemplateRunas.Count; i++)
+        {
+            if (CompareList(basicpointlist, scr_gestosTemplate.TemplateRunas[i].dirList))
+            {
+                gestureName = scr_gestosTemplate.TemplateRunas[i].Name;
+                break;
+            }
 		}
-	}
+        Debug.Log(gestureName);
+        return gestureName;
+    }
+
+    private bool CompareList (List<Vector2> A, List<Vector2> B)
+    {
+        if (A.Count == B.Count)
+        {
+            for (int e = 1; e < B.Count; e++)
+            {
+                if (A[e] != B[e])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 
 	Vector2 Rotate(Vector2 v, float degrees)
     {
@@ -218,5 +253,12 @@ public class Gestures : MonoBehaviour {
         v.x = (cos * tx) - (sin * ty);
         v.y = (sin * tx) + (cos * ty);
         return v;
+    }
+
+    private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)
+    {
+        Vector2 diference = vec2 - vec1;
+        //float sign = (vec2.y < vec1.y) ? -1.0f : 1.0f;
+        return Vector2.Angle(Vector2.right, diference);
     }
 }

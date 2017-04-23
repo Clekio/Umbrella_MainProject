@@ -18,7 +18,7 @@
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.2f1</UnityVersion>
     <RootNamespace></RootNamespace>
-    <LangVersion>4</LangVersion>
+    <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -88,9 +88,10 @@
     <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADogResting.cs" />
     <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADogStatePattern.cs" />
     <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADogStates.cs" />
-    <Compile Include="Assets\Scripts\LineaFer\Gestures.cs" />
-    <Compile Include="Assets\Scripts\LineaFer\Line.cs" />
-    <Compile Include="Assets\Scripts\LineaFer\LineCreator.cs" />
+    <Compile Include="Assets\Scripts\Gestos\Gestures.cs" />
+    <Compile Include="Assets\Scripts\Gestos\Line.cs" />
+    <Compile Include="Assets\Scripts\Gestos\LineCreator.cs" />
+    <Compile Include="Assets\Scripts\Gestos\scr_gestosTemplate.cs" />
     <Compile Include="Assets\Scripts\Magia_01.cs" />
     <Compile Include="Assets\Scripts\MagicManager.cs" />
     <Compile Include="Assets\Scripts\PlayerVictor\Scr_Controller2DVictor.cs" />
