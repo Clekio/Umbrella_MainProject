@@ -8,7 +8,9 @@ public class MagicManager : MonoBehaviour {
 	bool wind;
 	bool swirl;
 
-	public GameObject Particler;
+	bool waterGrowing;
+
+	public GameObject waterBall;
 	public GameObject viento1;
 	public GameObject remol1;
 	public Camera camera;
@@ -18,7 +20,12 @@ public class MagicManager : MonoBehaviour {
 	public CursorMode cursorMode = CursorMode.Auto;
 	public Vector2 hotSpot = Vector2.zero;
 
-	GameObject waterSource;
+	public float maxWaterSize;
+	public float growSpeed;
+	GameObject bola;
+
+	float waterGravity;
+	Transform waterTransform;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +33,9 @@ public class MagicManager : MonoBehaviour {
 		if (!camera) {
 			camera = Camera.main;
 		}
-		
+
+		waterGrowing = false;
+		waterGravity = waterBall.GetComponent<Rigidbody2D> ().gravityScale;
 	}
 	
 	// Update is called once per frame
@@ -36,11 +45,16 @@ public class MagicManager : MonoBehaviour {
 		
 		if (waterfall) {
 			if (Input.GetButtonDown ("Fire1")) {
-				waterSource = Instantiate (Particler, new Vector3 (p.x, p.y, 0), Quaternion.identity);
+				bola = Instantiate (waterBall, new Vector3 (p.x, p.y, 0), Quaternion.identity);
+				waterTransform = bola.GetComponent <Transform> ();
+				bola.GetComponent<Rigidbody2D> ().gravityScale = 0;
+				waterGrowing = true;
 			}
 			if (Input.GetButtonUp ("Fire1")) {
-				Destroy (waterSource);
+				waterGrowing = false;
+				bola.GetComponent<Rigidbody2D> ().gravityScale = waterGravity;
 				ResetOption ();
+
 			}
 		}
 			
@@ -73,6 +87,14 @@ public class MagicManager : MonoBehaviour {
 
 		if (Input.GetKeyDown ("3")) {
 			ActivateSwirl ();
+		}
+
+		if (waterGrowing) {
+			if (waterTransform.localScale.x < maxWaterSize) {
+				waterTransform.localScale += new Vector3 (growSpeed, growSpeed, 0);
+			} else {
+				waterTransform.localScale = new Vector3 (maxWaterSize, maxWaterSize, 1);
+			}
 		}
 
 	}

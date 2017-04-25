@@ -23,7 +23,7 @@ public class WaterEffects : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col){
-		if (col.tag == "DynamicParticle") {
+		if (col.tag == "Water") {
 //			if (col.GetComponent <DynamicParticle> ().currentState == col.GetComponent <DynamicParticle> ().STATES.WATER) {
 				ApplyEffect ();
 //			}

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Through
+  - Interactive
+  - waterReactor
+  - Water
   layers:
   - Default
   - TransparentFX
