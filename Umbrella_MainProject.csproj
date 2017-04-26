@@ -18,7 +18,7 @@
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.2f1</UnityVersion>
     <RootNamespace></RootNamespace>
-    <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
+    <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -75,12 +75,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MagicWater\LiquidPhysics\Resources\LiquidPhysics\DestroyWind.cs" />
-    <Compile Include="Assets\MagicWater\LiquidPhysics\Scripts\DynamicParticle.cs" />
-    <Compile Include="Assets\MagicWater\LiquidPhysics\Scripts\ParticleGenerator.cs" />
-    <Compile Include="Assets\MagicWater\Scripts\CreateWater.cs" />
-    <Compile Include="Assets\MagicWater\Scripts\MouseFollow.cs" />
-    <Compile Include="Assets\MagicWater\Scripts\WaterEffects.cs" />
+    <Compile Include="Assets\Puga\MagicWater\LiquidPhysics\Resources\LiquidPhysics\DestroyWind.cs" />
+    <Compile Include="Assets\Puga\MagicWater\LiquidPhysics\Scripts\DynamicParticle.cs" />
+    <Compile Include="Assets\Puga\MagicWater\LiquidPhysics\Scripts\ParticleGenerator.cs" />
+    <Compile Include="Assets\Puga\MagicWater\Scripts\CreateWater.cs" />
+    <Compile Include="Assets\Puga\MagicWater\Scripts\MouseFollow.cs" />
+    <Compile Include="Assets\Puga\MagicWater\Scripts\WaterEffects.cs" />
+    <Compile Include="Assets\Puga\Scripts\WaterBall.cs" />
     <Compile Include="Assets\Scripts\Ayudantes\scr_CheckPoint.cs" />
     <Compile Include="Assets\Scripts\Ayudantes\scr_DeathZone.cs" />
     <Compile Include="Assets\Scripts\Enemigos\Scr_Perro\IADog.cs" />
@@ -98,6 +99,11 @@
     <Compile Include="Assets\Scripts\PlayerVictor\Scr_PlayerInputVictor.cs" />
     <Compile Include="Assets\Scripts\PlayerVictor\Scr_PlayerVictor.cs" />
     <Compile Include="Assets\Scripts\PlayerVictor\scr_Respawn.cs" />
+    <Compile Include="Assets\Scripts\Puzle 4\Scr_ArbolRampa.cs" />
+    <Compile Include="Assets\Scripts\Puzle 4\Scr_Menhir.cs" />
+    <Compile Include="Assets\Scripts\Puzle 4\Scr_Tentaculos.cs" />
+    <Compile Include="Assets\Scripts\Puzle 4\Scr_TriggerArbolRampa.cs" />
+    <Compile Include="Assets\Scripts\Puzle 4\Scr_TriggerTentaculos.cs" />
     <Compile Include="Assets\Scripts\Scene management\Scr_SceneManager.cs" />
     <Compile Include="Assets\Scripts\Scene management\scr_LoadScn.cs" />
     <Compile Include="Assets\Scripts\Scene management\scr_UnloadScn.cs" />
@@ -113,7 +119,7 @@
     <Compile Include="Assets\Scripts\Scr_Wind1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\MagicWater\LiquidPhysics\Shaders\Metaballs_Multiple.shader" />
+    <None Include="Assets\Puga\MagicWater\LiquidPhysics\Shaders\Metaballs_Multiple.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
