@@ -8,6 +8,8 @@ public class MagicManager : MonoBehaviour {
 	bool wind;
 	bool swirl;
 
+    public string magicName;
+
 	bool waterGrowing;
 
 	public GameObject waterBall;
@@ -26,6 +28,7 @@ public class MagicManager : MonoBehaviour {
 
 	float waterGravity;
 	Transform waterTransform;
+    private Gestures scr_gestos;
 
 	// Use this for initialization
 	void Start () {
@@ -36,56 +39,101 @@ public class MagicManager : MonoBehaviour {
 
 		waterGrowing = false;
 		waterGravity = waterBall.GetComponent<Rigidbody2D> ().gravityScale;
+
+        scr_gestos = GetComponent<Gestures>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		Vector3 p = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 21));
-		
-		if (waterfall) {
-			if (Input.GetButtonDown ("Fire1")) {
-				bola = Instantiate (waterBall, new Vector3 (p.x, p.y, 0), Quaternion.identity);
-				waterTransform = bola.GetComponent <Transform> ();
-				bola.GetComponent<Rigidbody2D> ().gravityScale = 0;
-				waterGrowing = true;
-			}
-			if (Input.GetButtonUp ("Fire1")) {
-				waterGrowing = false;
-				bola.GetComponent<Rigidbody2D> ().gravityScale = waterGravity;
-				ResetOption ();
 
-			}
-		}
-			
-		if (wind) {
-			if (Input.GetButtonDown ("Fire1")) {
-				Cursor.SetCursor (cursorTextureVie, hotSpot, cursorMode);
-				Instantiate (viento1, new Vector3 (p.x, p.y, 0), Quaternion.identity);
-				Cursor.SetCursor (null, Vector2.zero, cursorMode);
-				ResetOption ();
-			}
-		}
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (magicName == "waterfall")
+            {
+                bola = Instantiate(waterBall, new Vector3(p.x, p.y, 0), Quaternion.identity);
+                waterTransform = bola.GetComponent<Transform>();
+                bola.GetComponent<Rigidbody2D>().gravityScale = 0;
+                waterGrowing = true;
+            }
+            else if (magicName == "wind")
+            {
+                Cursor.SetCursor(cursorTextureVie, hotSpot, cursorMode);
+                Instantiate(viento1, new Vector3(p.x, p.y, 0), Quaternion.identity);
+                Cursor.SetCursor(null, Vector2.zero, cursorMode);
+                ResetOption();
+            }
+            else if (magicName == "swirl")
+            {
+                Cursor.SetCursor(cursorTextureRaf, hotSpot, cursorMode);
+                Instantiate(remol1, new Vector3(p.x, p.y, 0), Quaternion.identity);
+                Cursor.SetCursor(null, Vector2.zero, cursorMode);
+                ResetOption();
+            }
+        }
+        else if (Input.GetMouseButtonUp(1) && magicName == "waterfall")
+        {
+            if (magicName == "waterfall")
+            {
+                waterGrowing = false;
+                bola.GetComponent<Rigidbody2D>().gravityScale = waterGravity;
+                ResetOption();
+            }
+            else if (magicName == "wind")
+            {
 
-		if (swirl) {
-			if (Input.GetButtonDown ("Fire1")) {
-				Cursor.SetCursor (cursorTextureRaf, hotSpot, cursorMode);
-				Instantiate (remol1, new Vector3 (p.x, p.y, 0), Quaternion.identity);
-				Cursor.SetCursor (null, Vector2.zero, cursorMode);
-				ResetOption ();
-			}
+            }
+            
+        }
 
-		}
+        //if (magicName == "waterfall")
+        //{
+        //    if (Input.GetMouseButtonDown(1))
+        //    {
+        //        bola = Instantiate(waterBall, new Vector3(p.x, p.y, 0), Quaternion.identity);
+        //        waterTransform = bola.GetComponent<Transform>();
+        //        bola.GetComponent<Rigidbody2D>().gravityScale = 0;
+        //        waterGrowing = true;
+        //    }
+        //    if (Input.GetMouseButtonUp(1))
+        //    {
+        //        waterGrowing = false;
+        //        bola.GetComponent<Rigidbody2D>().gravityScale = waterGravity;
+        //        ResetOption();
+        //    }
+        //}
 
-		if (Input.GetKeyDown ("1")) {
+        //if (magicName == "wind")
+        //{
+        //    if (Input.GetMouseButtonDown(1))
+        //    {
+        //        Cursor.SetCursor(cursorTextureVie, hotSpot, cursorMode);
+        //        Instantiate(viento1, new Vector3(p.x, p.y, 0), Quaternion.identity);
+        //        Cursor.SetCursor(null, Vector2.zero, cursorMode);
+        //        ResetOption();
+        //    }
+        //}
+
+        //if (magicName == "swirl")
+        //{
+
+        //    if (Input.GetMouseButtonDown(1))
+        //    {
+        //        Cursor.SetCursor(cursorTextureRaf, hotSpot, cursorMode);
+        //        Instantiate(remol1, new Vector3(p.x, p.y, 0), Quaternion.identity);
+        //        Cursor.SetCursor(null, Vector2.zero, cursorMode);
+        //        ResetOption();
+        //    }
+        //}
+
+        if (Input.GetKeyDown ("1")) {
 			ActivateWaterfall ();
 		}
-
-		if (Input.GetKeyDown ("2")) {
+        else if (Input.GetKeyDown ("2")) {
 			ActivateWind ();
 		}
-
-		if (Input.GetKeyDown ("3")) {
+        else if (Input.GetKeyDown ("3")) {
 			ActivateSwirl ();
 		}
 
@@ -100,26 +148,19 @@ public class MagicManager : MonoBehaviour {
 	}
 
 	void ResetOption (){
-		waterfall = false;
-		wind = false;
-		swirl = false;
+        magicName = null;
 	}
 
 	void ActivateWaterfall (){
-		waterfall = true;
-		wind = false;
-		swirl = false;
-	}
+        magicName = "waterfall";
+
+    }
 
 	void ActivateWind (){
-		waterfall = false;
-		wind = true;
-		swirl = false;
-	}
+        magicName = "wind";
+    }
 
 	void ActivateSwirl (){
-		waterfall = false;
-		wind = false;
-		swirl = true;
-	}
+        magicName = "swirl";
+    }
 }

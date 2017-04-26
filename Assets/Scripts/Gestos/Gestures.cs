@@ -12,33 +12,22 @@ public class Gestures : MonoBehaviour {
         public List<Vector2> gesture;
     }
 
-	struct Gesto
-	{
-		public List<Vector2> dirList;
-		public string Name;
-	}
-	
-	List<Gesto> listaGestos = new List<Gesto>();
 	Vector2 lastMousePos;
     Vector2 lastDelta;
-
-	private void Start()
-	{
-		//Gesto Lazo = new Gesto();
-		//Lazo.Name = "Lazo";
-		//Lazo.dirList.Add(new Vector2 (0.0f, -1.0f));
-		//Lazo.dirList.Add(new Vector2(1.0f, 1.0f));
-		//Lazo.dirList.Add(new Vector2(-1.0f, -1.0f));
-		//listaGestos.Add(Lazo);
-	}
 
 	List<Vector2> currentGesture;
     List<Vector2> finalGesture;
 
-    NormalizedGesture currentNormalized;
-    private string gestureName;
-    void Update () {
+    private MagicManager scr_magicManager;
+    private void Awake()
+    {
+        scr_magicManager = GetComponent<MagicManager>();
+    }
 
+    NormalizedGesture currentNormalized;
+    [SerializeField]
+    string gestureName = "Triangulo";
+    void Update () {
         Vector2 thisDelta = ((Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition) - lastMousePos)/Time.deltaTime;
         if (Input.GetMouseButtonDown(0))
         {
@@ -52,43 +41,44 @@ public class Gestures : MonoBehaviour {
             currentGesture = OptimizeGesture(currentGesture);
 			currentNormalized = Normalize(currentGesture);
             finalGesture = Simplification(currentNormalized.gesture);
-            gestureName = Recognition(finalGesture);
+            scr_magicManager.magicName = Recognition(finalGesture);
+            //gestureName = Recognition(finalGesture);
         }
 		lastDelta = thisDelta;
         lastMousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
-        if (currentGesture != null) {
-            Vector2 vP = currentGesture[0];
-            for(int i = 1; i < currentGesture.Count; i++) {
-                if(vP != null)
-                    Debug.DrawLine(vP, currentGesture[i], Color.red);
-                vP = currentGesture[i];
-            }
+        //if (currentGesture != null) {
+        //    Vector2 vP = currentGesture[0];
+        //    for(int i = 1; i < currentGesture.Count; i++) {
+        //        if(vP != null)
+        //            Debug.DrawLine(vP, currentGesture[i], Color.red);
+        //        vP = currentGesture[i];
+        //    }
 
-        }
+        //}
 
-        if (currentNormalized.gesture != null)
-        {
-            Vector2 vP = currentNormalized.gesture[0];
-            for (int i = 1; i < currentNormalized.gesture.Count; i++)
-            {
-                if (vP != null)
-                    Debug.DrawLine(vP, currentNormalized.gesture[i], Color.green);
-                vP = currentNormalized.gesture[i];
-            }
-        }
+        //if (currentNormalized.gesture != null)
+        //{
+        //    Vector2 vP = currentNormalized.gesture[0];
+        //    for (int i = 1; i < currentNormalized.gesture.Count; i++)
+        //    {
+        //        if (vP != null)
+        //            Debug.DrawLine(vP, currentNormalized.gesture[i], Color.green);
+        //        vP = currentNormalized.gesture[i];
+        //    }
+        //}
 
-        if (finalGesture != null)
-        {
-            Vector2 vP = new Vector2(0, 0);
-            for (int i = 0; i < finalGesture.Count; i++)
-            {
-                if (vP != null)
-                    Debug.DrawLine(vP, finalGesture[i] + vP, Color.blue);
+        //if (finalGesture != null)
+        //{
+        //    Vector2 vP = new Vector2(0, 0);
+        //    for (int i = 0; i < finalGesture.Count; i++)
+        //    {
+        //        if (vP != null)
+        //            Debug.DrawLine(vP, finalGesture[i] + vP, Color.blue);
 
-                vP = vP + finalGesture[i];
-            }
-        }
+        //        vP = vP + finalGesture[i];
+        //    }
+        //}
     }
 
     [SerializeField] float distanceMargin = 0.05f;

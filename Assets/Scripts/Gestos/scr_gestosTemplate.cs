@@ -14,34 +14,40 @@ public class scr_gestosTemplate : MonoBehaviour
     {
         //Triangulo
         Gesto Triangulo1 = new Gesto();
-        Triangulo1.Name = "Triangulo";
+        Triangulo1.Name = "waterfall";
         Triangulo1.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, -1), new Vector2(-1, 0) });
         TemplateRunas.Add(Triangulo1);
 
         Gesto Triangulo2 = new Gesto();
-        Triangulo2.Name = "Triangulo";
+        Triangulo2.Name = "waterfall";
         Triangulo2.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, -1), new Vector2(-1, -1) });
         TemplateRunas.Add(Triangulo2);
 
         Gesto Triangulo3 = new Gesto();
-        Triangulo3.Name = "Triangulo";
+        Triangulo3.Name = "waterfall";
         Triangulo3.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, 0), new Vector2(-1, -1) });
         TemplateRunas.Add(Triangulo3);
 
         //Cuadrado
         Gesto Cuadrado1 = new Gesto();
-        Cuadrado1.Name = "Cuadrado";
+        Cuadrado1.Name = "wind";
         Cuadrado1.dirList = new List<Vector2>(new Vector2[] {new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0)});
         TemplateRunas.Add(Cuadrado1);
 
         Gesto Cuadrado2 = new Gesto();
-        Cuadrado2.Name = "Cuadrado";
+        Cuadrado2.Name = "wind";
         Cuadrado2.dirList = new List<Vector2>(new Vector2[] {new Vector2(0, 1), new Vector2(1, 1), new Vector2(0, -1), new Vector2(-1, -1)});
         TemplateRunas.Add(Cuadrado2);
 
         Gesto Cuadrado3 = new Gesto();
-        Cuadrado3.Name = "Cuadrado";
+        Cuadrado3.Name = "wind";
         Cuadrado3.dirList = new List<Vector2>(new Vector2[] {new Vector2(0, 1), new Vector2(1, -1), new Vector2(0, -1), new Vector2(-1, 1)});
         TemplateRunas.Add(Cuadrado3);
+
+        //rayo
+        Gesto rayo1 = new Gesto();
+        rayo1.Name = "swirl";
+        rayo1.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, -1), new Vector2(0, 1) });
+        TemplateRunas.Add(rayo1);
     }
 }
