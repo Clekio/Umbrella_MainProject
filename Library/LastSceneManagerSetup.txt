@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Magic.unity
+- path: Assets/Scenes/scn_Victor.unity
   isLoaded: 1
   isActive: 1
