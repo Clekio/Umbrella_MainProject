@@ -11,14 +11,22 @@ public class WaterEffects : MonoBehaviour {
 
 	public Transform plantPosition;
 
+	bool plantActivated;
 
 	// Use this for initialization
 	void Start () {
-		
+		plantActivated = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (plantActivated) {
+			if (transform.position != plantPosition.position) {
+				transform.position = Vector2.MoveTowards (transform.position, plantPosition.position, speed);
+			} else {
+				plantActivated = false;
+			}
+		}
 		
 	}
 
@@ -47,9 +55,7 @@ public class WaterEffects : MonoBehaviour {
 	}
 	void EfectoPlanta (){
 		gameObject.GetComponent <Renderer> ().material.color = Color.green;
-		if (transform.position != plantPosition.position){
-			transform.position = Vector2.MoveTowards (transform.position, plantPosition.position, speed);
-		}
+		plantActivated = true;
 	}
 	void EfectoFuego (){
 		gameObject.GetComponent <Renderer> ().material.color = Color.yellow;
