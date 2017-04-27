@@ -35,6 +35,7 @@ public class Gestures : MonoBehaviour {
         }
         if (Input.GetMouseButton(0)) {
             RecordPosition(Camera.main.ScreenToViewportPoint(Input.mousePosition) , thisDelta, lastDelta, currentGesture);
+            //RecordPosition(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z)));
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -46,39 +47,43 @@ public class Gestures : MonoBehaviour {
         }
 		lastDelta = thisDelta;
         lastMousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        //lastMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
 
-        //if (currentGesture != null) {
-        //    Vector2 vP = currentGesture[0];
-        //    for(int i = 1; i < currentGesture.Count; i++) {
-        //        if(vP != null)
-        //            Debug.DrawLine(vP, currentGesture[i], Color.red);
-        //        vP = currentGesture[i];
-        //    }
 
-        //}
+        if (currentGesture != null)
+        {
+            Vector2 vP = currentGesture[0];
+            for (int i = 1; i < currentGesture.Count; i++)
+            {
+                if (vP != null)
+                    Debug.DrawLine(vP, currentGesture[i], Color.red);
+                vP = currentGesture[i];
+            }
 
-        //if (currentNormalized.gesture != null)
-        //{
-        //    Vector2 vP = currentNormalized.gesture[0];
-        //    for (int i = 1; i < currentNormalized.gesture.Count; i++)
-        //    {
-        //        if (vP != null)
-        //            Debug.DrawLine(vP, currentNormalized.gesture[i], Color.green);
-        //        vP = currentNormalized.gesture[i];
-        //    }
-        //}
+        }
 
-        //if (finalGesture != null)
-        //{
-        //    Vector2 vP = new Vector2(0, 0);
-        //    for (int i = 0; i < finalGesture.Count; i++)
-        //    {
-        //        if (vP != null)
-        //            Debug.DrawLine(vP, finalGesture[i] + vP, Color.blue);
+        if (currentNormalized.gesture != null)
+        {
+            Vector2 vP = currentNormalized.gesture[0];
+            for (int i = 1; i < currentNormalized.gesture.Count; i++)
+            {
+                if (vP != null)
+                    Debug.DrawLine(vP, currentNormalized.gesture[i], Color.green);
+                vP = currentNormalized.gesture[i];
+            }
+        }
 
-        //        vP = vP + finalGesture[i];
-        //    }
-        //}
+        if (finalGesture != null)
+        {
+            Vector2 vP = new Vector2(0, 0);
+            for (int i = 0; i < finalGesture.Count; i++)
+            {
+                if (vP != null)
+                    Debug.DrawLine(vP, finalGesture[i] + vP, Color.blue);
+
+                vP = vP + finalGesture[i];
+            }
+        }
     }
 
     [SerializeField] float distanceMargin = 0.05f;
