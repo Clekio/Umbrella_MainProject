@@ -1,14 +1,17 @@
-﻿<Properties StartupItem="Umbrella_MainProject.csproj">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerVictor\Scr_PlayerVictor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Gestos\Gestures.cs">
     <Files>
-      <File FileName="Assets\Scripts\MagicManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Puga\MagicWater\Scripts\WaterEffects.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MagicManager.cs" Line="40" Column="22" />
+      <File FileName="Assets\Puga\MagicWater\Scripts\WaterEffects.cs" Line="69" Column="69" />
       <File FileName="Assets\Puga\MagicWater\Scripts\CreateWater.cs" Line="1" Column="1" />
-      <File FileName="Assets\Puga\Scripts\WaterBall.cs" Line="1" Column="1" />
+      <File FileName="Assets\Puga\Scripts\WaterBall.cs" Line="16" Column="2" />
       <File FileName="Assets\Scripts\PlayerVictor\Scr_Controller2DVictor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerVictor\Scr_PlayerVictor.cs" Line="123" Column="2" />
+      <File FileName="Assets\Scripts\PlayerVictor\Scr_PlayerVictor.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerVictor\Scr_PlayerInputVictor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gestos\Gestures.cs" Line="1" Column="1" />
+      <File FileName="Assets\Puga\Scripts\Bubble.cs" Line="19" Column="25" />
+      <File FileName="Assets\Puga\Scripts\BubbleInsider.cs" Line="15" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -931,6 +931,11 @@ Prefab:
       propertyPath: plantPosition
       value: 
       objectReference: {fileID: 1311651663}
+    - target: {fileID: 114013239069450352, guid: d749b3250c45ff0448c9593bf602e514,
+        type: 2}
+      propertyPath: plantSpeed
+      value: 0.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d749b3250c45ff0448c9593bf602e514, type: 2}
   m_IsPrefabParent: 0
@@ -1636,6 +1641,7 @@ GameObject:
   - component: {fileID: 1977073269}
   - component: {fileID: 1977073272}
   - component: {fileID: 1977073273}
+  - component: {fileID: 1977073274}
   m_Layer: 12
   m_Name: tronco1
   m_TagString: Untagged
@@ -1927,7 +1933,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1.05
   m_LinearDrag: 0.5
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -1936,6 +1942,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1977073274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1977073268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78b2161208f0854ba416b2b3b951083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dentro: 0
+  bubbleGravity: 0.0001
 --- !u!1001 &1984194261
 Prefab:
   m_ObjectHideFlags: 0
@@ -1945,11 +1964,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4564334157797796, guid: ae668b6910cc910479aa764c9b5222ef, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -93.7
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 4564334157797796, guid: ae668b6910cc910479aa764c9b5222ef, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.9
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 4564334157797796, guid: ae668b6910cc910479aa764c9b5222ef, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1974,11 +1993,6 @@ Prefab:
     - target: {fileID: 4564334157797796, guid: ae668b6910cc910479aa764c9b5222ef, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 50297028373884638, guid: ae668b6910cc910479aa764c9b5222ef,
-        type: 2}
-      propertyPath: m_BodyType
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae668b6910cc910479aa764c9b5222ef, type: 2}
