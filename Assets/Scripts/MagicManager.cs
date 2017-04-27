@@ -22,8 +22,8 @@ public class MagicManager : MonoBehaviour {
 	public CursorMode cursorMode = CursorMode.Auto;
 	public Vector2 hotSpot = Vector2.zero;
 
-	public float maxWaterSize;
-	public float growSpeed;
+	public float maxWaterSize = 0.9f;
+	public float growSpeed = 0.01f;
 	GameObject bola;
 
 	float waterGravity;
@@ -46,7 +46,7 @@ public class MagicManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 p = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 21));
+		Vector3 p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));//new Vector3(Input.mousePosition.x, Input.mousePosition.y, 21));
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -70,6 +70,10 @@ public class MagicManager : MonoBehaviour {
                 Instantiate(remol1, new Vector3(p.x, p.y, 0), Quaternion.identity);
                 Cursor.SetCursor(null, Vector2.zero, cursorMode);
                 ResetOption();
+            }
+            else if (magicName == "thunder")
+            {
+                //magia thunder
             }
         }
         else if (Input.GetMouseButtonUp(1) && magicName == "waterfall")
