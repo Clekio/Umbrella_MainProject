@@ -5,16 +5,20 @@ using UnityEngine;
 public class MagicManager : MonoBehaviour {
 
 	bool waterfall;
+	bool bubble;
 	bool wind;
 	bool swirl;
 
     public string magicName;
 
 	bool waterGrowing;
+	bool bubbleGrowing;
 
 	public GameObject waterBall;
+	public GameObject waterBubble;
 	public GameObject viento1;
 	public GameObject remol1;
+
 	public Camera camera;
 
 	public Texture2D cursorTextureVie;
@@ -23,30 +27,43 @@ public class MagicManager : MonoBehaviour {
 	public Vector2 hotSpot = Vector2.zero;
 
 	public float maxWaterSize = 0.9f;
-	public float growSpeed = 0.01f;
+	public float waterGrowSpeed = 0.01f;
+
+	public float maxBubbleSize = 0.9f;
+	public float bubbleGrowSpeed = 0.01f;
+
 	GameObject bola;
 
 	float waterGravity;
 	Transform waterTransform;
-    private Gestures scr_gestos;
+
+	float bubbleGravity;
+	Transform bubbleTransform;
+
+	private Gestures scr_gestos;
 
 	// Use this for initialization
 	void Start () {
+		
 		ResetOption ();
 		if (!camera) {
 			camera = Camera.main;
 		}
 
 		waterGrowing = false;
+		bubbleGrowing = false;
+
 		waterGravity = waterBall.GetComponent<Rigidbody2D> ().gravityScale;
+		bubbleGravity = waterBubble.GetComponent<Rigidbody2D> ().gravityScale;
 
         scr_gestos = GetComponent<Gestures>();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));//new Vector3(Input.mousePosition.x, Input.mousePosition.y, 21));
+		Vector3 p = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 21));
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -56,7 +73,15 @@ public class MagicManager : MonoBehaviour {
                 waterTransform = bola.GetComponent<Transform>();
                 bola.GetComponent<Rigidbody2D>().gravityScale = 0;
                 waterGrowing = true;
-            }
+			}
+			else if (magicName == "bubble")
+			{
+				bola = Instantiate(waterBubble, new Vector3(p.x, p.y, 0), Quaternion.identity);
+				bubbleTransform = bola.GetComponent<Transform>();
+				bola.GetComponent<Rigidbody2D>().gravityScale = 0;
+				bubbleGrowing = true;
+			}
+
             else if (magicName == "wind")
             {
                 Cursor.SetCursor(cursorTextureVie, hotSpot, cursorMode);
@@ -71,12 +96,9 @@ public class MagicManager : MonoBehaviour {
                 Cursor.SetCursor(null, Vector2.zero, cursorMode);
                 ResetOption();
             }
-            else if (magicName == "thunder")
-            {
-                //magia thunder
-            }
         }
-        else if (Input.GetMouseButtonUp(1) && magicName == "waterfall")
+
+        else if (Input.GetMouseButtonUp(1))
         {
             if (magicName == "waterfall")
             {
@@ -84,11 +106,12 @@ public class MagicManager : MonoBehaviour {
                 bola.GetComponent<Rigidbody2D>().gravityScale = waterGravity;
                 ResetOption();
             }
-            else if (magicName == "wind")
-            {
-
-            }
-            
+			else if (magicName == "bubble")
+			{
+				bubbleGrowing = false;
+				bola.GetComponent<Rigidbody2D>().gravityScale = bubbleGravity;
+				ResetOption();
+			}
         }
 
         //if (magicName == "waterfall")
@@ -134,18 +157,29 @@ public class MagicManager : MonoBehaviour {
         if (Input.GetKeyDown ("1")) {
 			ActivateWaterfall ();
 		}
-        else if (Input.GetKeyDown ("2")) {
-			ActivateWind ();
+		else if (Input.GetKeyDown ("2")) {
+			ActivateBubble ();
 		}
         else if (Input.GetKeyDown ("3")) {
+			ActivateWind ();
+		}
+        else if (Input.GetKeyDown ("4")) {
 			ActivateSwirl ();
 		}
 
 		if (waterGrowing) {
 			if (waterTransform.localScale.x < maxWaterSize) {
-				waterTransform.localScale += new Vector3 (growSpeed, growSpeed, 0);
+				waterTransform.localScale += new Vector3 (waterGrowSpeed, waterGrowSpeed, 0);
 			} else {
 				waterTransform.localScale = new Vector3 (maxWaterSize, maxWaterSize, 1);
+			}
+		}
+
+		if (bubbleGrowing) {
+			if (bubbleTransform.localScale.x < maxBubbleSize) {
+				bubbleTransform.localScale += new Vector3 (bubbleGrowSpeed, bubbleGrowSpeed, 0);
+			} else {
+				bubbleTransform.localScale = new Vector3 (maxBubbleSize, maxBubbleSize, 1);
 			}
 		}
 
@@ -157,8 +191,11 @@ public class MagicManager : MonoBehaviour {
 
 	void ActivateWaterfall (){
         magicName = "waterfall";
-
     }
+
+	void ActivateBubble (){
+		magicName = "bubble";
+	}
 
 	void ActivateWind (){
         magicName = "wind";
