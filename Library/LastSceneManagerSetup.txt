@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Puga/Scenes/NivelesPuga.unity
+- path: Assets/Scenes/scn_fer.unity
   isLoaded: 1
   isActive: 1
