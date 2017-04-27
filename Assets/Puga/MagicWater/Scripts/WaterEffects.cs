@@ -7,22 +7,28 @@ public class WaterEffects : MonoBehaviour {
 	public bool barro;
 	public bool planta;
 	public bool fuego;
-	public float speed;
+	public bool seta;
+
+	public float plantSpeed;
+	public float mushroomForce;
+	public float jumpMultiplier = 1.5f;
 
 	public Transform plantPosition;
 
 	bool plantActivated;
+	bool setaActivated;
 
 	// Use this for initialization
 	void Start () {
 		plantActivated = false;
+		setaActivated = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (plantActivated) {
 			if (transform.position != plantPosition.position) {
-				transform.position = Vector2.MoveTowards (transform.position, plantPosition.position, speed);
+				transform.position = Vector2.MoveTowards (transform.position, plantPosition.position, plantSpeed);
 			} else {
 				plantActivated = false;
 			}
@@ -36,6 +42,12 @@ public class WaterEffects : MonoBehaviour {
 				ApplyEffect ();
 //			}
 		}
+
+		if (col.tag == "Player" && setaActivated) {
+			col.GetComponent<Rigidbody2D>().AddForce (transform.up*mushroomForce*jumpMultiplier, ForceMode2D.Impulse);
+			Debug.Log ("jump");
+			setaActivated = false;
+		}
 	}
 
 	void ApplyEffect (){
@@ -48,6 +60,9 @@ public class WaterEffects : MonoBehaviour {
 		if (fuego) {
 			EfectoFuego ();
 		}
+		if (seta) {
+			EfectoSeta ();
+		}
 	}
 
 	void EfectoBarro (){
@@ -59,6 +74,10 @@ public class WaterEffects : MonoBehaviour {
 	}
 	void EfectoFuego (){
 		gameObject.GetComponent <Renderer> ().material.color = Color.yellow;
+	}
+	void EfectoSeta (){
+		gameObject.GetComponent <Renderer> ().material.color = Color.magenta;
+		setaActivated = true;
 	}
 
 }
