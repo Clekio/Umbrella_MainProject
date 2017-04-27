@@ -117,6 +117,63 @@ Camera:
   m_PrefabParentObject: {fileID: 20398124572540352, guid: 04b9ca7a2b06aa44c90a54fd0abe9104,
     type: 2}
   m_PrefabInternal: {fileID: 729826386}
+--- !u!1001 &605049619
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114232069284713700, guid: 3620e30c83734914c9f183c8c74ef779,
+        type: 2}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 526721377}
+    - target: {fileID: 114232069284713700, guid: 3620e30c83734914c9f183c8c74ef779,
+        type: 2}
+      propertyPath: growSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114232069284713700, guid: 3620e30c83734914c9f183c8c74ef779,
+        type: 2}
+      propertyPath: maxWaterSize
+      value: 0.9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &631776493
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +514,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20398124572540352, guid: 04b9ca7a2b06aa44c90a54fd0abe9104,
+        type: 2}
+      propertyPath: orthographic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04b9ca7a2b06aa44c90a54fd0abe9104, type: 2}
@@ -996,6 +1058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d955d7b195848c468f87e81b3a16356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicName: 
   waterBall: {fileID: 1399212290911130, guid: 46cd5a00be7226f49a3a5fb98af6216e, type: 2}
   viento1: {fileID: 1944199387664560, guid: 8f311be0435708c4a8fd5d27867a6436, type: 2}
   remol1: {fileID: 1664939715166164, guid: 718bd61a24769de48a51fcc325010ee6, type: 2}
