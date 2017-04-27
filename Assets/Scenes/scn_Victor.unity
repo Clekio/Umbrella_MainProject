@@ -190,6 +190,11 @@ MonoBehaviour:
   VelocidadTentaculos2: 7
   TiempoDestruccion: 2
   destruir: {fileID: 0}
+--- !u!4 &153816252 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779,
+    type: 2}
+  m_PrefabInternal: {fileID: 832202242}
 --- !u!1 &309627294
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +435,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 2, z: 1}
   m_Children:
   - {fileID: 669930117}
-  - {fileID: 1674090224}
+  - {fileID: 153816252}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -790,6 +795,53 @@ Transform:
   m_Father: {fileID: 478623903}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &832202242
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 600831876}
+    m_Modifications:
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 55.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194894845357468, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114232069284713700, guid: 3620e30c83734914c9f183c8c74ef779,
+        type: 2}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 669930116}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3620e30c83734914c9f183c8c74ef779, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &946356145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,56 +1559,6 @@ Transform:
   m_Father: {fileID: 1177033042}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1674090223
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1674090224}
-  - component: {fileID: 1674090225}
-  m_Layer: 0
-  m_Name: MagicManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1674090224
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1674090223}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.2, y: 2.14, z: 0}
-  m_LocalScale: {x: 2, y: 0.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 600831876}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1674090225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1674090223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d955d7b195848c468f87e81b3a16356, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterBall: {fileID: 0}
-  viento1: {fileID: 1944199387664560, guid: 8f311be0435708c4a8fd5d27867a6436, type: 2}
-  remol1: {fileID: 1664939715166164, guid: 718bd61a24769de48a51fcc325010ee6, type: 2}
-  camera: {fileID: 0}
-  cursorTextureVie: {fileID: 2800000, guid: fa1fe09ebf5812a4997c0439799686b0, type: 3}
-  cursorTextureRaf: {fileID: 2800000, guid: 8f42e2f0f3b81844791fef92e1027307, type: 3}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
-  maxWaterSize: 0
-  growSpeed: 0
 --- !u!1 &1723292022
 GameObject:
   m_ObjectHideFlags: 0

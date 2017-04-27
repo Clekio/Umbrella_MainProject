@@ -22,8 +22,8 @@ public class MagicManager : MonoBehaviour {
 	public CursorMode cursorMode = CursorMode.Auto;
 	public Vector2 hotSpot = Vector2.zero;
 
-	public float maxWaterSize;
-	public float growSpeed;
+	public float maxWaterSize = 0.9f;
+	public float growSpeed = 0.01f;
 	GameObject bola;
 
 	float waterGravity;
