@@ -72,6 +72,15 @@ public class Scr_PlayerVictor : MonoBehaviour {
 
     void Update()
     {
+
+
+
+
+
+
+
+
+
         CalculateVelocity();
 
         setAnimation();
