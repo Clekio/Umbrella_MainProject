@@ -104,6 +104,8 @@
     <Compile Include="Assets\Scripts\Puzle 4\Scr_Tentaculos.cs" />
     <Compile Include="Assets\Scripts\Puzle 4\Scr_TriggerArbolRampa.cs" />
     <Compile Include="Assets\Scripts\Puzle 4\Scr_TriggerTentaculos.cs" />
+    <Compile Include="Assets\Scripts\Puzle 5\Scr_Barro.cs" />
+    <Compile Include="Assets\Scripts\Puzle 5\Scr_TriggerEnemigoP6.cs" />
     <Compile Include="Assets\Scripts\Scene management\Scr_SceneManager.cs" />
     <Compile Include="Assets\Scripts\Scene management\scr_LoadScn.cs" />
     <Compile Include="Assets\Scripts\Scene management\scr_UnloadScn.cs" />
