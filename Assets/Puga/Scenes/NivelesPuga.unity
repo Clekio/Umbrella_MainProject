@@ -912,6 +912,11 @@ Prefab:
       propertyPath: m_Name
       value: Planta
       objectReference: {fileID: 0}
+    - target: {fileID: 114013239069450352, guid: d749b3250c45ff0448c9593bf602e514,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1391655087}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d749b3250c45ff0448c9593bf602e514, type: 2}
   m_IsPrefabParent: 0
@@ -1951,11 +1956,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4564334157797796, guid: ae668b6910cc910479aa764c9b5222ef, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -96.8
+      value: -10.2
       objectReference: {fileID: 0}
     - target: {fileID: 4564334157797796, guid: ae668b6910cc910479aa764c9b5222ef, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -6.3
       objectReference: {fileID: 0}
     - target: {fileID: 4564334157797796, guid: ae668b6910cc910479aa764c9b5222ef, type: 2}
       propertyPath: m_LocalPosition.z
