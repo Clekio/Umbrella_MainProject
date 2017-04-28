@@ -15,5 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene managing tests/scn_Level_C.unity
   - enabled: 0
     path: Assets/Scenes/Scene managing tests/scn_Logics.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Magic.unity
+  - enabled: 1
+    path: Assets/Puga/Scenes/NivelesPuga.unity
