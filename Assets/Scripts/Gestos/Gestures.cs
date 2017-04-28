@@ -176,7 +176,7 @@ public class Gestures : MonoBehaviour {
         return normalized;
     }
 
-    private float esoYTal = 0.1f;
+    //private float esoYTal = 0.1f;
     List<Vector2> Simplification(List<Vector2> pointList)
 	{
 		//string signo = "";
