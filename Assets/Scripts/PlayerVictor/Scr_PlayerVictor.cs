@@ -10,6 +10,7 @@ public class Scr_PlayerVictor : MonoBehaviour {
     public float CrouchSpeed = .25f;                  // Amount of maxSpeed applied to crouching movement. 1 = 100%
     public float MaxJumpHeight = 4.0f;
     public float MinJumpHeight = 1.0f;
+	public float MaxSetaImpulse;
     [Tooltip("Tiempo en alcanzar la altura maxima del salto")]
     public float TimeToJumpApex = .4f;
     [Tooltip("tiempo que tardara en caer al suelo cuando ")]
@@ -160,4 +161,22 @@ public class Scr_PlayerVictor : MonoBehaviour {
         m_anim.SetFloat("hSpeed", Mathf.Abs(Velocity.x / MoveSpeed));
         m_anim.SetFloat("vSpeed", Mathf.Abs(Velocity.y / MoveSpeed));
     }
+
+	public void OnSetaOn()
+	{
+		if (Velocity.y<MaxSetaImpulse)
+		{
+			Velocity.y = MaxSetaImpulse;
+		} else {
+			OnSetaOff();
+		}
+	}
+
+	public void OnSetaOff()
+	{
+		if (Velocity.y > m_minJumpVelocity)
+		{
+			Velocity.y = m_minJumpVelocity;
+		}
+	}
 }

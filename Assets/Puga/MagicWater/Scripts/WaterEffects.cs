@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class WaterEffects : MonoBehaviour {
 
+	public Scr_PlayerVictor player;
+
 	public bool barro;
 	public bool planta;
 	public bool fuego;
 	public bool seta;
 
+	public bool setaDesactivable;
+
 	public float plantSpeed;
-	public float mushroomForce;
 	public float jumpMultiplier = 1.5f;
 
 	public Transform plantPosition;
@@ -18,10 +21,22 @@ public class WaterEffects : MonoBehaviour {
 	bool plantActivated;
 	bool setaActivated;
 
+	float originalJump;
+	float setaBounce;
+
+	Color originalColor;
+
 	// Use this for initialization
 	void Start () {
+		
 		plantActivated = false;
 		setaActivated = false;
+
+		originalJump = player.MaxJumpHeight;
+		setaBounce = originalJump * jumpMultiplier;
+
+		originalColor = gameObject.GetComponent <Renderer> ().material.color;
+
 	}
 	
 	// Update is called once per frame
@@ -44,9 +59,17 @@ public class WaterEffects : MonoBehaviour {
 		}
 
 		if (col.tag == "Player" && setaActivated) {
-			col.GetComponent<Rigidbody2D>().AddForce (transform.up*mushroomForce*jumpMultiplier, ForceMode2D.Impulse);
+			
 			Debug.Log ("jump");
-			setaActivated = false;
+
+			player.MaxSetaImpulse = setaBounce;
+
+			player.OnSetaOn ();
+
+			if (setaDesactivable) {
+				setaActivated = false;
+				gameObject.GetComponent <Renderer> ().material.color = originalColor;
+			}
 		}
 	}
 
