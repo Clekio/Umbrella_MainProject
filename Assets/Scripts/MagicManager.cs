@@ -97,6 +97,16 @@ public class MagicManager : MonoBehaviour {
                 Cursor.SetCursor(null, Vector2.zero, cursorMode);
                 ResetOption();
             }
+            else if (magicName == "thunder")
+            {
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(p.x, p.y), Vector2.zero);
+
+                if (hit.collider != null)
+                {
+                    hit.collider.gameObject.GetComponent<scr_thunderEffects>().Accion();
+                }
+                magicName = null;
+            }
         }
 
         else if (Input.GetMouseButtonUp(1))

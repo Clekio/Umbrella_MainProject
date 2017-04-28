@@ -44,16 +44,22 @@ public class scr_gestosTemplate : MonoBehaviour
         Cuadrado3.dirList = new List<Vector2>(new Vector2[] {new Vector2(0, 1), new Vector2(1, -1), new Vector2(0, -1), new Vector2(-1, 1)});
         TemplateRunas.Add(Cuadrado3);
 
-        //rayo
-        Gesto rayo1 = new Gesto();
-        rayo1.Name = "swirl";
-        rayo1.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, -1), new Vector2(0, 1) });
-        TemplateRunas.Add(rayo1);
+        //T1
+        Gesto T = new Gesto();
+        T.Name = "swirl";
+        T.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, 0), new Vector2(-1, 0) });
+        TemplateRunas.Add(T);
+
+        //U1
+        Gesto U1 = new Gesto();
+        U1.Name = "bubble";
+        U1.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1) });
+        TemplateRunas.Add(U1);
 
         //rayo
-        Gesto bubble1 = new Gesto();
-        bubble1.Name = "bubble";
-        bubble1.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1) });
-        TemplateRunas.Add(bubble1);
+        Gesto Rayo1 = new Gesto();
+        Rayo1.Name = "thunder";
+        Rayo1.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, -1), new Vector2(0, 1) });
+        TemplateRunas.Add(Rayo1);
     }
 }
