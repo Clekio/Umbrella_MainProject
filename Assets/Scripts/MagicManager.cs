@@ -19,7 +19,7 @@ public class MagicManager : MonoBehaviour {
 	public GameObject viento1;
 	public GameObject remol1;
 
-	public Camera camera;
+	//public Camera camera;
 
 	public Texture2D cursorTextureVie;
 	public Texture2D cursorTextureRaf;
@@ -46,9 +46,9 @@ public class MagicManager : MonoBehaviour {
 	void Start () {
 		
 		ResetOption ();
-		if (!camera) {
-			camera = Camera.main;
-		}
+		//if (!camera) {
+		//	camera = Camera.main;
+		//}
 
 		waterGrowing = false;
 		bubbleGrowing = false;
@@ -63,7 +63,8 @@ public class MagicManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 p = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 21));
+        //Vector3 p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 21));
+        Vector3 p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
 
         if (Input.GetMouseButtonDown(1))
         {

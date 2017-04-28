@@ -18,7 +18,7 @@
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.2f1</UnityVersion>
     <RootNamespace></RootNamespace>
-    <LangVersion>4</LangVersion>
+    <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -81,6 +81,8 @@
     <Compile Include="Assets\Puga\MagicWater\Scripts\CreateWater.cs" />
     <Compile Include="Assets\Puga\MagicWater\Scripts\MouseFollow.cs" />
     <Compile Include="Assets\Puga\MagicWater\Scripts\WaterEffects.cs" />
+    <Compile Include="Assets\Puga\Scripts\Bubble.cs" />
+    <Compile Include="Assets\Puga\Scripts\BubbleInsider.cs" />
     <Compile Include="Assets\Puga\Scripts\WaterBall.cs" />
     <Compile Include="Assets\Scripts\Ayudantes\scr_CheckPoint.cs" />
     <Compile Include="Assets\Scripts\Ayudantes\scr_DeathZone.cs" />

@@ -49,5 +49,11 @@ public class scr_gestosTemplate : MonoBehaviour
         rayo1.Name = "swirl";
         rayo1.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, -1), new Vector2(0, 1) });
         TemplateRunas.Add(rayo1);
+
+        //rayo
+        Gesto bubble1 = new Gesto();
+        bubble1.Name = "bubble";
+        bubble1.dirList = new List<Vector2>(new Vector2[] { new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1) });
+        TemplateRunas.Add(bubble1);
     }
 }
