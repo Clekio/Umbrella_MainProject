@@ -121,7 +121,7 @@ public class Scr_PlayerVictor : MonoBehaviour {
         else return m_mainGravity;
     }
 
-    void CalculateVelocity()
+    public void CalculateVelocity()
     {
         //StandUp();
         float targetVelocityX = DirectionalInput.x * MoveSpeed;

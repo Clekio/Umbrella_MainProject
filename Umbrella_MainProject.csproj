@@ -81,6 +81,8 @@
     <Compile Include="Assets\Puga\MagicWater\Scripts\CreateWater.cs" />
     <Compile Include="Assets\Puga\MagicWater\Scripts\MouseFollow.cs" />
     <Compile Include="Assets\Puga\MagicWater\Scripts\WaterEffects.cs" />
+    <Compile Include="Assets\Puga\Scripts\Bubble.cs" />
+    <Compile Include="Assets\Puga\Scripts\BubbleInsider.cs" />
     <Compile Include="Assets\Puga\Scripts\WaterBall.cs" />
     <Compile Include="Assets\Scripts\Ayudantes\scr_CheckPoint.cs" />
     <Compile Include="Assets\Scripts\Ayudantes\scr_DeathZone.cs" />
@@ -104,8 +106,12 @@
     <Compile Include="Assets\Scripts\Puzle 4\Scr_Tentaculos.cs" />
     <Compile Include="Assets\Scripts\Puzle 4\Scr_TriggerArbolRampa.cs" />
     <Compile Include="Assets\Scripts\Puzle 4\Scr_TriggerTentaculos.cs" />
-    <Compile Include="Assets\Scripts\Puzle 5\Scr_Barro.cs" />
-    <Compile Include="Assets\Scripts\Puzle 5\Scr_TriggerEnemigoP6.cs" />
+    <Compile Include="Assets\Scripts\Puzle 6\Scr_Barro.cs" />
+    <Compile Include="Assets\Scripts\Puzle 6\Scr_EnemigoP6.cs" />
+    <Compile Include="Assets\Scripts\Puzle 6\Scr_TriggerEnemigoP6.cs" />
+    <Compile Include="Assets\Scripts\Puzle 7 y 8\Scr_Pinchos.cs" />
+    <Compile Include="Assets\Scripts\Puzle 7 y 8\Scr_Planta.cs" />
+    <Compile Include="Assets\Scripts\Puzle 7 y 8\Spr_Caja.cs" />
     <Compile Include="Assets\Scripts\Scene management\Scr_SceneManager.cs" />
     <Compile Include="Assets\Scripts\Scene management\scr_LoadScn.cs" />
     <Compile Include="Assets\Scripts\Scene management\scr_UnloadScn.cs" />
