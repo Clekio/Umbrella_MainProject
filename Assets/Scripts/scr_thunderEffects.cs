@@ -33,8 +33,10 @@ public class scr_thunderEffects : MonoBehaviour {
         //This is a coroutine
         Debug.Log("1");
         rend.material.color = Color.yellow;
+		gameObject.GetComponent <Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
 
-        yield return new WaitForSeconds(3);    //Wait one frame
+        yield return new WaitForSeconds(3);
+		gameObject.GetComponent <Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;//Wait one frame
 
         Debug.Log("2");
         rend.material.color = Color.white;

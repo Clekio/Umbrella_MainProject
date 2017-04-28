@@ -54,6 +54,7 @@
      <Compile Include="Assets\Puga\MagicWater\Scripts\WaterEffects.cs" />
      <Compile Include="Assets\Puga\Scripts\Bubble.cs" />
      <Compile Include="Assets\Puga\Scripts\BubbleInsider.cs" />
+     <Compile Include="Assets\Puga\Scripts\StalactiteBreakable.cs" />
      <Compile Include="Assets\Puga\Scripts\WaterBall.cs" />
      <Compile Include="Assets\Scripts\Ayudantes\scr_CheckPoint.cs" />
      <Compile Include="Assets\Scripts\Ayudantes\scr_DeathZone.cs" />
@@ -92,6 +93,7 @@
      <Compile Include="Assets\Scripts\Scr_UnloadScene.cs" />
      <Compile Include="Assets\Scripts\Scr_Wind.cs" />
      <Compile Include="Assets\Scripts\Scr_Wind1.cs" />
+     <Compile Include="Assets\Scripts\scr_thunderEffects.cs" />
      <None Include="Assets\Puga\MagicWater\LiquidPhysics\Shaders\Metaballs_Multiple.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Archivos de programa (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
