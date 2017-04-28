@@ -177,6 +177,9 @@ public class MagicManager : MonoBehaviour {
         else if (Input.GetKeyDown ("4")) {
 			ActivateSwirl ();
 		}
+		else if (Input.GetKeyDown ("5")) {
+			ActivateThunder ();
+		}
 
 		if (waterGrowing) {
 			if (waterTransform.localScale.x < maxWaterSize) {
@@ -215,4 +218,8 @@ public class MagicManager : MonoBehaviour {
 	void ActivateSwirl (){
         magicName = "swirl";
     }
+
+	void ActivateThunder (){
+		magicName = "thunder";
+	}
 }
