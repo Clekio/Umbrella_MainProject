@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Gestures : MonoBehaviour {
 
+    private Vector2 m_gesturePosition;
+    private string m_gestureName;
+
     struct NormalizedGesture {
         public Vector2 originalCenter;
         public float rotation;
@@ -26,15 +29,17 @@ public class Gestures : MonoBehaviour {
 
     NormalizedGesture currentNormalized;
     [SerializeField]
-    string gestureName = "Triangulo";
+    //string gestureName = "Triangulo";
     void Update () {
-        Vector2 thisDelta = ((Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition) - lastMousePos)/Time.deltaTime;
+        Vector2 thisDelta = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - lastMousePos)/Time.deltaTime;
         if (Input.GetMouseButtonDown(0))
         {
             currentGesture = new List<Vector2>();
         }
         if (Input.GetMouseButton(0)) {
-            RecordPosition(Camera.main.ScreenToViewportPoint(Input.mousePosition) , thisDelta, lastDelta, currentGesture);
+            Vector3 instpos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
+            RecordPosition(instpos, thisDelta, lastDelta, currentGesture);
+            //RecordPosition(Camera.main.ScreenToViewportPoint(Input.mousePosition) , thisDelta, lastDelta, currentGesture);
             //RecordPosition(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z)));
         }
         if (Input.GetMouseButtonUp(0))
@@ -42,12 +47,13 @@ public class Gestures : MonoBehaviour {
             currentGesture = OptimizeGesture(currentGesture);
 			currentNormalized = Normalize(currentGesture);
             finalGesture = Simplification(currentNormalized.gesture);
-            scr_magicManager.magicName = Recognition(finalGesture);
-            //gestureName = Recognition(finalGesture);
+            //scr_magicManager.magicName = Recognition(finalGesture);
+            m_gestureName = Recognition(finalGesture);
+            scr_magicManager.SpawnMagic(m_gestureName, m_gesturePosition);
         }
 		lastDelta = thisDelta;
-        lastMousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        //lastMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
+        //lastMousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        lastMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
 
 
         if (currentGesture != null)
@@ -59,7 +65,6 @@ public class Gestures : MonoBehaviour {
                     Debug.DrawLine(vP, currentGesture[i], Color.red);
                 vP = currentGesture[i];
             }
-
         }
 
         if (currentNormalized.gesture != null)
@@ -140,6 +145,7 @@ public class Gestures : MonoBehaviour {
             center += v;
         }
         center = center / ((float)gesture.Count);
+        m_gesturePosition = center;
         normalized.originalCenter = center;
         Vector2 c = normalizedList[0];
         for (int i = 0; i < normalizedList.Count; i++)

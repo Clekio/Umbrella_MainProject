@@ -9,7 +9,12 @@ public class MagicManager : MonoBehaviour {
 	bool wind;
 	bool swirl;
 
+    bool SpawnOnDrawPosition;
+
+    [HideInInspector]
     public string magicName;
+    [HideInInspector]
+    public Vector2 position;
 
 	bool waterGrowing;
 	bool bubbleGrowing;
@@ -125,45 +130,7 @@ public class MagicManager : MonoBehaviour {
 			}
         }
 
-        //if (magicName == "waterfall")
-        //{
-        //    if (Input.GetMouseButtonDown(1))
-        //    {
-        //        bola = Instantiate(waterBall, new Vector3(p.x, p.y, 0), Quaternion.identity);
-        //        waterTransform = bola.GetComponent<Transform>();
-        //        bola.GetComponent<Rigidbody2D>().gravityScale = 0;
-        //        waterGrowing = true;
-        //    }
-        //    if (Input.GetMouseButtonUp(1))
-        //    {
-        //        waterGrowing = false;
-        //        bola.GetComponent<Rigidbody2D>().gravityScale = waterGravity;
-        //        ResetOption();
-        //    }
-        //}
-
-        //if (magicName == "wind")
-        //{
-        //    if (Input.GetMouseButtonDown(1))
-        //    {
-        //        Cursor.SetCursor(cursorTextureVie, hotSpot, cursorMode);
-        //        Instantiate(viento1, new Vector3(p.x, p.y, 0), Quaternion.identity);
-        //        Cursor.SetCursor(null, Vector2.zero, cursorMode);
-        //        ResetOption();
-        //    }
-        //}
-
-        //if (magicName == "swirl")
-        //{
-
-        //    if (Input.GetMouseButtonDown(1))
-        //    {
-        //        Cursor.SetCursor(cursorTextureRaf, hotSpot, cursorMode);
-        //        Instantiate(remol1, new Vector3(p.x, p.y, 0), Quaternion.identity);
-        //        Cursor.SetCursor(null, Vector2.zero, cursorMode);
-        //        ResetOption();
-        //    }
-        //}
+        
 
         if (Input.GetKeyDown ("1")) {
 			ActivateWaterfall ();
@@ -198,6 +165,50 @@ public class MagicManager : MonoBehaviour {
 		}
 
 	}
+
+    public void SpawnMagic(string name, Vector2 position)
+    {
+        Debug.Log(position);
+        //if (name == "waterfall")
+        //{
+        //    bola = Instantiate(waterBall, new Vector3(position.x, position.y, 0), Quaternion.identity);
+        //    waterTransform = bola.GetComponent<Transform>();
+        //    bola.GetComponent<Rigidbody2D>().gravityScale = 0;
+        //    waterGrowing = true;
+        //}
+        //else if (magicName == "bubble")
+        //{
+        //    bola = Instantiate(waterBubble, new Vector3(p.x, p.y, 0), Quaternion.identity);
+        //    bubbleTransform = bola.GetComponent<Transform>();
+        //    bola.GetComponent<Rigidbody2D>().gravityScale = 0;
+        //    bubbleGrowing = true;
+        //}
+
+        if (name == "wind")
+        {
+            Cursor.SetCursor(cursorTextureVie, hotSpot, cursorMode);
+            Instantiate(viento1, new Vector3(position.x, position.y, 0), Quaternion.identity);
+            Cursor.SetCursor(null, Vector2.zero, cursorMode);
+            ResetOption();
+        }
+        else if (name == "swirl")
+        {
+            Cursor.SetCursor(cursorTextureRaf, hotSpot, cursorMode);
+            Instantiate(remol1, new Vector3(position.x, position.y, 0), Quaternion.identity);
+            Cursor.SetCursor(null, Vector2.zero, cursorMode);
+            ResetOption();
+        }
+        else if (name == "thunder")
+        {
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(position.x, position.y), Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                hit.collider.gameObject.GetComponent<scr_thunderEffects>().Accion();
+            }
+            name = null;
+        }
+    }
 
 	void ResetOption (){
         magicName = null;
